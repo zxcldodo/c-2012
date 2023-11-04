@@ -1,19 +1,28 @@
-def find_min_coins(coins, target_amount):
-    coins.sort()
-    num_coins = 0
-    coins_combination = []
-    for coin in coins:
-        num_coin = target_amount // coin
-        num_coins += num_coin
-        target_amount -= num_coin * coin
-        coins_combination.append((coin, num_coin))
-        if target_amount == 0 or len(coin_combination) == 2:
-            break
-    return num_coins, coin_combination
-coins = list(map(int, input("Print nominal cherez space: ").split()))
-target_amount = int(input("Print sum: "))
-num_coins, coin_combination = find_min_coins(coins, target_amount)
-print(f"Min col v monet: {num_coins}")
-print("Kombination i if coll:")
-for coin, num in coin_combination:
-    print(f"nominal {coin}: {num} coina")
+wordz = ["car","dog","book","game","window","grandfather","grandmother","grandbanan"]
+word = random.choice(wordz)
+guessed_leters = []
+max_att = 10
+while True:
+    guessed_word = ""
+    for leters in word:
+        if leters in guessed_leters:
+            guessed_word += leters
+        else:
+            guessed_word += "_"
+    print("guessed word:" + guessed_word)
+    if guessed_word == word:
+        print("14/88! word is:") + word
+        break
+    guess = input("print letter:").lower()
+    if guess in guessed_leters:
+        print("daunnnnnnnnnnnnnnnn")
+    elif guess in word:
+        print("good")
+        guessed_leters.append(guess)
+    else:
+        print("daun ti sin shalavu")
+        guessed_leters.append(guess)
+        max_att -= 1
+    if max_att == 0:
+        print("you lose your father!word was") + word
+        break
